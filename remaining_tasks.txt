@@ -1,0 +1,15 @@
+zoko api usage for updating crm status of client based on client interaction with messages sent by employees
+
+process:
+
+initial task in crm is uploaded after each time a customer sends out a message to guy in a 24 hour window, the number of the person is sent from the node.js whatsapp scraper to make.com then updated in crm.
+
+when an employ starts a conversation in zoko, the status of the task(person to send a message to) is set to active in google sheets. using webhook in make that listents to new events in zoko e.g conversation intiated by employees.
+
+seprate workflow in make that uses the contacts list of guy to retrive and analyze message history every 15 minutes-whatever tf time he wants to set the mission as done whenever the convo with the customer is done OR the customer hasnt replied. using google sheets contacts database to search for numbers that had active conversation the day the workflow works (retrive all messages/chats from that day), then adding a filteration system for the updates in the crm based on the data from zoko. e.g if customer hasnt replied at all to the message after 2 hours crm task gets marked as done, if customer stopped conversing with the employee then after about 10 minutes or so an automatic message gets sent out to the customer to ask it if it wants to continue, if "Yes" then updates the crm as active, but as soon as the automatic message gets sent the task is marked as "On Hold"
+
+
+
+
+
+
