@@ -98,6 +98,12 @@ class WebhookService {
     }
 
     async sendToWebhook(phoneNumber, message) {
+        // Only forward if the number starts with "972"
+        if (!phoneNumber || !phoneNumber.startsWith('972')) {
+            console.log(`Blocking webhook: Number does not start with 972 or is invalid. Number: ${phoneNumber}`);
+            return; // Do not proceed if the number doesn't start with "972"
+        }
+
         const maxRetries = 3;
         let attempt = 0;
 
